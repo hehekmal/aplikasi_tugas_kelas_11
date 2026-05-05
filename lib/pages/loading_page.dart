@@ -12,6 +12,7 @@ class LoadingPage extends StatefulWidget {
 
 class _LoadingPageState extends State<LoadingPage> {
   late Timer loadTime;
+  late Timer loadbool;
   bool load = false;
   @override
   void initState() {
@@ -21,7 +22,7 @@ class _LoadingPageState extends State<LoadingPage> {
         MaterialPageRoute(builder: (context) => LoginPage()),
       );
     });
-    Timer.periodic(Duration(milliseconds: 1), (timer) {
+    loadbool=Timer.periodic(Duration(milliseconds: 1), (timer) {
       setState(() {
         load = true;
       });
@@ -32,9 +33,11 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   void dispose() {
     loadTime.cancel();
+    loadbool.cancel();
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
