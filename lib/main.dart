@@ -1,5 +1,4 @@
 import 'package:aplikasi_tugas_kelas_11/pages/loading_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main(){
